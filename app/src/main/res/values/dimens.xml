@@ -1,0 +1,17 @@
+<resources>
+<!--    Padding-->
+    <dimen name="common_padding_nano">2dp</dimen>
+    <dimen name="common_padding_micro">4dp</dimen>
+    <dimen name="common_padding_min">8dp</dimen>
+    <dimen name="common_padding_default">16dp</dimen>
+    <dimen name="common_padding_extra">48dp</dimen>
+    <dimen name="common_padding_extra_large">64dp</dimen>
+
+<!--    Images-->
+    <dimen name="img_item_card_list">50dp</dimen>
+
+<!--    Text-->
+    <dimen name="txt_item_list">20sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="common_padding_zero">1dp</dimen>
+</resources>

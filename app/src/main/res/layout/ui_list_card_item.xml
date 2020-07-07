@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardVisible"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/common_padding_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/common_padding_default"
+            android:layout_marginEnd="@dimen/common_padding_default"
+            android:layout_marginTop="@dimen/common_padding_default"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgCard"
+                    android:layout_width="@dimen/img_item_card_list"
+                    android:layout_height="@dimen/img_item_card_list"
+                    android:src="@drawable/ic_visa"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="@dimen/common_padding_min"
+                    android:layout_marginStart="@dimen/common_padding_default"
+                    android:layout_marginLeft="@dimen/common_padding_default" />
+
+                <TextView
+                    android:id="@+id/txtCardName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_card_name"
+                    android:textSize="@dimen/txt_item_list"
+                    app:layout_constraintStart_toEndOf="@id/imgCard"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/imgCard"
+                    app:layout_constraintBottom_toBottomOf="@id/imgCard"
+                    android:layout_marginStart="@dimen/common_padding_default"
+                    android:layout_marginEnd="@dimen/common_padding_default" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

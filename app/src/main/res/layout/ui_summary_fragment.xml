@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.ResumeFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardFinalAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="@dimen/common_padding_default"
+        android:layout_marginTop="@dimen/common_padding_default"
+        android:layout_marginStart="@dimen/common_padding_min"
+        android:layout_marginEnd="@dimen/common_padding_min"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/imgBar"
+                android:layout_width="@dimen/common_padding_min"
+                android:layout_height="0dp"
+                android:background="@color/color_secondary_variant_dark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/imgDivider"
+                android:layout_marginBottom="@dimen/common_padding_micro"
+                />
+
+            <TextView
+                android:id="@+id/txtFinalAmountTittle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_summary_final_amount_tittle"
+                app:layout_constraintStart_toEndOf="@id/imgBar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/imgDivider"
+                android:layout_marginStart="@dimen/common_padding_default"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:layout_marginLeft="@dimen/common_padding_default" />
+
+            <View
+                android:id="@+id/imgDivider"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/common_padding_zero"
+                android:background="@color/color_disable"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtFinalAmountTittle"
+                android:layout_marginTop="@dimen/common_padding_min"
+                />
+
+            <TextView
+                android:id="@+id/txtTotalAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_amount"
+                style="@style/TextAppearance.MaterialComponents.Headline3"
+                android:gravity="center_horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imgDivider"
+                android:layout_marginTop="@dimen/common_padding_default"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPaymentDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardFinalAmount"
+        app:cardCornerRadius="@dimen/common_padding_default"
+        android:layout_marginTop="@dimen/common_padding_default"
+        android:layout_marginStart="@dimen/common_padding_min"
+        android:layout_marginEnd="@dimen/common_padding_min"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/imgBar2"
+                android:layout_width="@dimen/common_padding_min"
+                android:layout_height="0dp"
+                android:background="@color/color_secondary_variant_dark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/imgDivider2"
+                android:layout_marginBottom="@dimen/common_padding_micro"
+                />
+
+            <TextView
+                android:id="@+id/txtPaymentDetailTittle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_summary_payment_detail_tittle"
+                app:layout_constraintStart_toEndOf="@id/imgBar2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/imgDivider2"
+                android:layout_marginStart="@dimen/common_padding_default"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:layout_marginLeft="@dimen/common_padding_default" />
+
+            <View
+                android:id="@+id/imgDivider2"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/common_padding_zero"
+                android:background="@color/color_disable"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtPaymentDetailTittle"
+                android:layout_marginTop="@dimen/common_padding_min"
+                />
+
+            <ImageView
+                android:id="@+id/imgCard"
+                android:layout_width="@dimen/img_item_card_list"
+                android:layout_height="@dimen/img_item_card_list"
+                android:src="@drawable/ic_visa"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgDivider2"
+                android:layout_marginStart="@dimen/common_padding_default"
+                android:layout_marginTop="@dimen/common_padding_default"
+                android:layout_marginLeft="@dimen/common_padding_default" />
+
+            <TextView
+                android:id="@+id/txtCardName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_card_name"
+                android:textSize="@dimen/txt_item_list"
+                app:layout_constraintStart_toEndOf="@id/imgCard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imgCard"
+                app:layout_constraintBottom_toBottomOf="@id/imgCard"
+                android:layout_marginStart="@dimen/common_padding_default"
+                android:layout_marginEnd="@dimen/common_padding_default"
+                />
+
+            <ImageView
+                android:id="@+id/imgBank"
+                android:layout_width="@dimen/img_item_card_list"
+                android:layout_height="@dimen/img_item_card_list"
+                android:src="@drawable/ic_visa"
+                app:layout_constraintTop_toBottomOf="@id/imgCard"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/common_padding_default"
+                android:layout_marginTop="@dimen/common_padding_default"
+                android:layout_marginLeft="@dimen/common_padding_default" />
+
+            <TextView
+                android:id="@+id/txtBankName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_card_name"
+                android:textSize="@dimen/txt_item_list"
+                app:layout_constraintStart_toEndOf="@id/imgCard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imgBank"
+                app:layout_constraintBottom_toBottomOf="@id/imgBank"
+                android:layout_marginStart="@dimen/common_padding_default"
+                android:layout_marginEnd="@dimen/common_padding_default"
+                />
+
+            <TextView
+                android:id="@+id/txtPaymentDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_amount"
+                android:gravity="center_horizontal"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgBank"
+                android:layout_marginTop="@dimen/common_padding_default"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonnConfirm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_confirm"
+        app:cornerRadius="@dimen/common_padding_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="@dimen/common_padding_default"
+        android:layout_marginEnd="@dimen/common_padding_default"
+        app:layout_goneMarginEnd="@dimen/common_padding_default"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

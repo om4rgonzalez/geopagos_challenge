@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/enterAmountFragment">
+
+    <fragment
+        android:id="@+id/enterAmountFragment"
+        android:name="net.omar.gonzalez.geopagoschallenge.ui.EnterAmountFragment"
+        android:label="ui_enter_amount_fragment"
+        tools:layout="@layout/ui_enter_amount_fragment" >
+        <action
+            android:id="@+id/action_enterAmountFragment_to_selectCardFragment"
+            app:destination="@id/selectCardFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectCardFragment"
+        android:name="net.omar.gonzalez.geopagoschallenge.ui.SelectCardFragment"
+        android:label="ui_select_card_fragment"
+        tools:layout="@layout/ui_select_card_fragment" >
+        <action
+            android:id="@+id/action_selectCardFragment_to_bankListFragment"
+            app:destination="@id/bankListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectAmountPaymentFragment"
+        android:name="net.omar.gonzalez.geopagoschallenge.ui.SelectAmountPaymentFragment"
+        android:label="ui_select_amount_payment_fragment"
+        tools:layout="@layout/ui_select_amount_payment_fragment" >
+        <action
+            android:id="@+id/action_selectAmountPaymentFragment_to_resumeFragment"
+            app:destination="@id/resumeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resumeFragment"
+        android:name="net.omar.gonzalez.geopagoschallenge.ui.ResumeFragment"
+        android:label="ui_resume_fragment"
+        tools:layout="@layout/ui_summary_fragment" >
+        <action
+            android:id="@+id/action_resumeFragment_to_paymentDoneFragment"
+            app:destination="@id/paymentDoneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentDoneFragment"
+        android:name="net.omar.gonzalez.geopagoschallenge.ui.PaymentDoneFragment"
+        android:label="ui_payment_done_fragment"
+        tools:layout="@layout/ui_payment_done_fragment" >
+        <action
+            android:id="@+id/action_paymentDoneFragment_to_enterAmountFragment"
+            app:destination="@id/enterAmountFragment"
+            app:popUpTo="@id/enterAmountFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankListFragment"
+        android:name="net.omar.gonzalez.geopagoschallenge.ui.BankListFragment"
+        android:label="ui_bank_list_fragment"
+        tools:layout="@layout/ui_select_bank_fragment" >
+        <action
+            android:id="@+id/action_bankListFragment_to_selectAmountPaymentFragment"
+            app:destination="@id/selectAmountPaymentFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+</navigation>

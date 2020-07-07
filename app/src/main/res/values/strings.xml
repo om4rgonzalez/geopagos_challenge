@@ -1,3 +1,53 @@
 <resources>
     <string name="app_name">geopagoschallenge</string>
+
+    <string name="txt_ar_sign">$</string>
+    <string name="txt_amount">999999.99</string>
+    <string name="txt_enter_amount_header">Cuánto tenes que cobrar?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="button_1">1</string>
+    <string name="button_2">2</string>
+    <string name="button_3">3</string>
+    <string name="button_4">4</string>
+    <string name="button_5">5</string>
+    <string name="button_6">6</string>
+    <string name="button_7">7</string>
+    <string name="button_8">8</string>
+    <string name="button_9">9</string>
+    <string name="button_blank" />
+    <string name="button_0">0</string>
+    <string name="txt_card_name">Visa</string>
+    <string name="lbl_select_card_header">Con que tarjeta vas a pagar?</string>
+    <string name="txt_payment_done">Pago Realizado</string>
+    <string name="txt_select_amount_payment_header">Escoge la forma de pago</string>
+    <string name="txt_quote">1</string>
+    <string name="txt_quote_name">Cuota</string>
+    <string name="txt_quote_amount">$500.00</string>
+    <string name="lbl_quote_amount">Valor de cuota</string>
+    <string name="lbl_total_amount">Total a pagar</string>
+    <string name="lbl_fee">Interés</string>
+    <string name="txt_fee">10%</string>
+    <string name="lbl_discount">Descuento</string>
+    <string name="txt_discount">0%</string>
+    <string name="lbl_plus">+</string>
+    <string name="button_confirm">Confirmar Pago</string>
+    <string name="lbl_payments_detail">Pagos</string>
+    <string name="max_length_number">8</string>
+    <string name="key">TEST-76c3a7b6-3354-4f60-83f8-a9a82dc61fac</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lbl_select_bank_header">A que banco pertenece la tarjeta?</string>
+    <string name="txt_quote_name_plural">Cuotas</string>
+    <string name="button_acept">Aceptar</string>
+    <string name="error_invalid_amount_format_tittle">No cargó monto</string>
+    <string name="error_invalid_amount_format_message">Debes cargar el monto a pagar</string>
+    <string name="buttibn_next">Continuar</string>
+    <string name="error_empty_card_list_tittle">No hay datos</string>
+    <string name="error_empty_card_list_message">No hemos podido obtener la lista de tarjetas habilitadas. Asegurate de tener conexi\'on a internet</string>
+    <string name="error_empty_bank_list_tittle">No hay datos</string>
+    <string name="error_empty_bank_list_message">No es posible usar la tarjeta elegida</string>
+    <string name="error_empty_cost_list_tittle">No hay datos</string>
+    <string name="error_empty_cost_list_message">El banco elegido no tiene planes de pago disponible</string>
+    <string name="txt_summary_final_amount_tittle">Monto a Pagar</string>
+    <string name="txt_summary_payment_detail_tittle">Detalle del Pago</string>
 </resources>
