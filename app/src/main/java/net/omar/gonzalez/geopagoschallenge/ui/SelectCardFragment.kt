@@ -53,16 +53,16 @@ class SelectCardFragment : Fragment(), CellClickListener {
 
         binding = UiSelectCardFragmentBinding.inflate(layoutInflater)
         paymentViewModel = ViewModelProvider(requireActivity()).get(PaymentViewModel::class.java)
-        paymentViewModel.getPaymentMethods().observe(requireActivity(), Observer { pm ->
+        paymentViewModel.getPaymentMethods().observe(paymentViewModel.getActivity(), Observer { pm ->
             binding.loading.visibility = View.GONE
             if ((pm == null) || (pm.isEmpty())) {
                 net.omar.gonzalez.geopagoschallenge.utils.ViewUtils.showAlert(
                     R.string.error_empty_card_list_tittle,
                     R.string.error_empty_card_list_message,
-                    requireActivity()
+                    paymentViewModel.getActivity()
                 )
             } else {
-                recyclerCardsAdapter = RecyclerCardsAdapter(pm, context, this)
+                recyclerCardsAdapter = RecyclerCardsAdapter(pm, this)
                 binding.recyclerCards.layoutManager =
                     androidx.recyclerview.widget.LinearLayoutManager(context)
                 binding.recyclerCards.adapter = recyclerCardsAdapter
@@ -73,14 +73,13 @@ class SelectCardFragment : Fragment(), CellClickListener {
             binding.loading.visibility = View.GONE
             if (go.trim().equals("bank")) {
                 paymentViewModel.postGoTo("")
-                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-                    .navigate(R.id.action_selectCardFragment_to_bankListFragment)
+                paymentViewModel.getNavController().navigate(R.id.action_selectCardFragment_to_bankListFragment)
             }
             if (go.trim().equals("bank_error")) {
                 paymentViewModel.postGoTo("")
                 net.omar.gonzalez.geopagoschallenge.utils.ViewUtils.showAlert(
                     R.string.error_empty_bank_list_tittle,
-                    R.string.error_empty_bank_list_message, requireActivity()
+                    R.string.error_empty_bank_list_message, paymentViewModel.getActivity()
                 )
             }
         })

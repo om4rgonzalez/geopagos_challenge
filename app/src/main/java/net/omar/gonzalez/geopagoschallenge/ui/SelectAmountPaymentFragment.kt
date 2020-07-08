@@ -48,7 +48,7 @@ class SelectAmountPaymentFragment : Fragment(), CellClickListener {
         binding = UiSelectAmountPaymentFragmentBinding.inflate(layoutInflater)
         binding.recyclerAmountPayment.layoutManager = LinearLayoutManager(context)
         paymentViewModel = ViewModelProvider(requireActivity()).get(PaymentViewModel::class.java)
-        paymentViewModel.getCostResponse().observe(requireActivity(), Observer { cr ->
+        paymentViewModel.getCostResponse().observe(paymentViewModel.getActivity(), Observer { cr ->
             recyclerAmountPaymentsAdapter = RecyclerAmountPaymentsAdapter(cr[0],this)
             binding.recyclerAmountPayment.adapter = recyclerAmountPaymentsAdapter
         })
@@ -79,7 +79,7 @@ class SelectAmountPaymentFragment : Fragment(), CellClickListener {
         when (data) {
             is Cost -> {
                 paymentViewModel.setFinalCost(data)
-                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.action_selectAmountPaymentFragment_to_resumeFragment)
+                paymentViewModel.getNavController().navigate(R.id.action_selectAmountPaymentFragment_to_resumeFragment)
             }
         }
     }

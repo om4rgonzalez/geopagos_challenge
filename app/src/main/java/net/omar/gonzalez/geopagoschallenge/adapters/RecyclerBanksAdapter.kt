@@ -17,7 +17,6 @@ import net.omar.gonzalez.geopagoschallenge.utils.CellClickListener
 import net.omar.gonzalez.geopagoschallenge.viewmodel.PaymentViewModel
 
 class RecyclerBanksAdapter(private val items: List<Bank>,
-                           private val context: Context?,
                            private val cellClickListener: CellClickListener) : RecyclerView.Adapter<RecyclerBanksAdapter.ViewHolder>() {
     init {
     }

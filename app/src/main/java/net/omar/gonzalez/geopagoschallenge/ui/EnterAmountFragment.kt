@@ -1,23 +1,16 @@
 package net.omar.gonzalez.geopagoschallenge.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import net.omar.gonzalez.geopagoschallenge.R
-import net.omar.gonzalez.geopagoschallenge.adapters.RecyclerCardsAdapter
 import net.omar.gonzalez.geopagoschallenge.databinding.UiEnterAmountFragmentBinding
-import net.omar.gonzalez.geopagoschallenge.databinding.UiSelectCardFragmentBinding
 import net.omar.gonzalez.geopagoschallenge.utils.ViewUtils
 import net.omar.gonzalez.geopagoschallenge.viewmodel.PaymentViewModel
-import java.text.NumberFormat
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,6 +37,8 @@ class EnterAmountFragment : Fragment() {
     ): View? {
         binding = UiEnterAmountFragmentBinding.inflate(layoutInflater)
         paymentViewModel = ViewModelProvider(requireActivity()).get(PaymentViewModel::class.java)
+        if(this.isAdded)
+            paymentViewModel.setActivity(requireActivity())
         paymentViewModel.getAmountShow().observe(requireActivity(), Observer { number ->
             binding.txtAmount.text = number
             })
@@ -53,18 +48,17 @@ class EnterAmountFragment : Fragment() {
                 paymentViewModel!!.obtainMethods(requireContext())
             }
             }
-        paymentViewModel.getGoTo().observe(requireActivity(), Observer { go ->
+        paymentViewModel.getGoTo().observe(paymentViewModel.getActivity(), Observer { go ->
             binding.loading.visibility = View.GONE
             if (go.trim().equals("card")) {
                 paymentViewModel.postGoTo("")
-                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-                    .navigate(R.id.action_enterAmountFragment_to_selectCardFragment)
+                paymentViewModel.getNavController().navigate(R.id.action_enterAmountFragment_to_selectCardFragment)
             }
             if (go.trim().equals("card_error")) {
                 paymentViewModel.postGoTo("")
                 net.omar.gonzalez.geopagoschallenge.utils.ViewUtils.showAlert(
                     R.string.error_empty_card_list_tittle,
-                    R.string.error_empty_card_list_message, requireActivity()
+                    R.string.error_empty_card_list_message, paymentViewModel.getActivity()
                 )
             }
         })

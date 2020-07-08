@@ -1,9 +1,13 @@
 package net.omar.gonzalez.geopagoschallenge.viewmodel
 
+import android.app.Activity
 import android.content.Context
+import android.util.Log
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
 import net.omar.gonzalez.geopagoschallenge.R
 import net.omar.gonzalez.geopagoschallenge.io.RetrofitApiService
 import net.omar.gonzalez.geopagoschallenge.pojo.*
@@ -25,8 +29,12 @@ class PaymentViewModel : ViewModel() {
     private var finalBank = MutableLiveData<Bank>()
     private var finalCost = MutableLiveData<Cost>()
     private var goTo = MutableLiveData<String>()
+    private var navController = MutableLiveData<NavController>()
+    private var activity = MutableLiveData<FragmentActivity>()
 
     init {
+        Log.v("MVVM", "Se inicia el view model")
+        activity.value = null
         finalAmount.value = ""
         goTo.value = ""
         amountShow.value = "$0,00"
@@ -212,5 +220,21 @@ class PaymentViewModel : ViewModel() {
         amountShow.value = "$0,00"
     }
 
+    fun setNavController(navController: NavController){
+        this.navController.value = navController
+    }
+
+    fun getNavController(): NavController{
+        return navController.value!!
+    }
+
+    fun setActivity(activity: FragmentActivity){
+        if(this.activity.value == null)
+            this.activity.value = activity
+    }
+
+    fun getActivity(): FragmentActivity{
+        return this.activity.value!!
+    }
 }
 

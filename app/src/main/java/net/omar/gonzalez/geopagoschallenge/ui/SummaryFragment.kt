@@ -41,7 +41,7 @@ class ResumeFragment : Fragment() {
     ): View? {
         binding = UiSummaryFragmentBinding.inflate(layoutInflater)
         paymentViewModel = ViewModelProvider(requireActivity()).get(PaymentViewModel::class.java)
-        paymentViewModel.getResumePayment().observe(requireActivity(), Observer { summary ->
+        paymentViewModel.getResumePayment().observe(paymentViewModel.getActivity(), Observer { summary ->
             val format = NumberFormat.getCurrencyInstance()
             format.currency = Currency.getInstance("ARS")
             val currency: String = format.format(summary.amount.toDouble())
@@ -60,7 +60,7 @@ class ResumeFragment : Fragment() {
                 .into(binding.imgBank)
         })
 
-        binding.buttonnConfirm.setOnClickListener(View.OnClickListener { Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(
+        binding.buttonnConfirm.setOnClickListener(View.OnClickListener { paymentViewModel.getNavController().navigate(
             R.id.action_resumeFragment_to_paymentDoneFragment) })
 
         return binding.root

@@ -40,7 +40,7 @@ class PaymentDoneFragment : Fragment() {
         binding = UiPaymentDoneFragmentBinding.inflate(layoutInflater)
         paymentViewModel = ViewModelProvider(requireActivity()).get(PaymentViewModel::class.java)
         paymentViewModel.reset()
-        binding.buttonnDone.setOnClickListener(View.OnClickListener { Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.action_paymentDoneFragment_to_enterAmountFragment) })
+        binding.buttonnDone.setOnClickListener(View.OnClickListener { paymentViewModel.getNavController().navigate(R.id.action_paymentDoneFragment_to_enterAmountFragment) })
         return binding.root
     }
 

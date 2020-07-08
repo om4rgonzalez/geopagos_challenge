@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">geopagoschallenge</string>
+    <string name="app_name">Geopagos Challenge</string>
 
     <string name="txt_ar_sign">$</string>
     <string name="txt_amount">999999.99</string>
@@ -50,4 +50,5 @@
     <string name="error_empty_cost_list_message">El banco elegido no tiene planes de pago disponible</string>
     <string name="txt_summary_final_amount_tittle">Monto a Pagar</string>
     <string name="txt_summary_payment_detail_tittle">Detalle del Pago</string>
+    <string name="lbl_enter_amount">Ingrese monto a pagar</string>
 </resources>

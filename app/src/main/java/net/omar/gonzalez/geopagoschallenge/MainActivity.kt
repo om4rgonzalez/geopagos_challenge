@@ -21,5 +21,7 @@ class MainActivity : AppCompatActivity() {
         navController = (supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment?)
             ?.getNavController()
+        paymentViewModel = ViewModelProvider(this).get(PaymentViewModel::class.java)
+        navController?.let { paymentViewModel!!.setNavController(it) }
     }
 }

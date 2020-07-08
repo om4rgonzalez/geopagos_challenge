@@ -57,56 +57,29 @@ class BankListFragment : Fragment(), CellClickListener {
         paymentViewModel = ViewModelProvider(requireActivity()).get(PaymentViewModel::class.java)
         binding.recyclerBanks.layoutManager =
             LinearLayoutManager(context)
-        paymentViewModel.getBanks().observe(requireActivity(), Observer { banks ->
-            recyclerBanksAdapter = RecyclerBanksAdapter(banks, context, this)
+        paymentViewModel.getBanks().observe(paymentViewModel.getActivity(), Observer { banks ->
+            recyclerBanksAdapter = RecyclerBanksAdapter(banks, this)
             binding.recyclerBanks.adapter = recyclerBanksAdapter
             binding.loading.visibility = View.GONE
         })
 
-        paymentViewModel.getGoTo().observe(requireActivity(), Observer { go ->
+        paymentViewModel.getGoTo().observe(paymentViewModel.getActivity(), Observer { go ->
             binding.loading.visibility = View.GONE
             if (go.trim().equals("cost")) {
                 paymentViewModel.postGoTo("")
-                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.action_bankListFragment_to_selectAmountPaymentFragment)
+                paymentViewModel.getNavController().navigate(R.id.action_bankListFragment_to_selectAmountPaymentFragment)
             }
             if(go.trim().equals("cost_error")){
                 paymentViewModel.postGoTo("")
                 net.omar.gonzalez.geopagoschallenge.utils.ViewUtils.showAlert(
                     R.string.error_empty_cost_list_tittle,
-                    R.string.error_empty_cost_list_message, requireActivity()
+                    R.string.error_empty_cost_list_message, paymentViewModel.getActivity()
                 )
             }
         })
         return binding.root
     }
 
-    private fun goBack() {
-        requireActivity().onBackPressed()
-    }
-
-    fun viewAlert(tittle: Int, message: Int) {
-        net.omar.gonzalez.geopagoschallenge.utils.ViewUtils.showAlert(
-            tittle,
-            message, requireActivity()
-        )
-    }
-
-    private fun showMessage(tittle: Int, message: Int) {
-        val alertDialog: AlertDialog = requireActivity().let {
-            val builder = AlertDialog.Builder(it)
-            builder.apply {
-                setTitle(tittle)
-                setMessage(message)
-                setCancelable(false)
-                setPositiveButton(R.string.button_acept) { dialog, id ->
-                    dialog.dismiss()
-                    goBack()
-                }
-            }
-            builder.create()
-        }
-        alertDialog.show()
-    }
 
     companion object {
         /**

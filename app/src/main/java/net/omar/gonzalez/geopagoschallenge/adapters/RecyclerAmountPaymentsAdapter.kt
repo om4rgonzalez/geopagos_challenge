@@ -22,10 +22,6 @@ class RecyclerAmountPaymentsAdapter(
     private val cellClickListener: CellClickListener
 ) : RecyclerView.Adapter<RecyclerAmountPaymentsAdapter.ViewHolder>() {
 
-    init {
-//        Log.v("R_COST", "Se instancia el adaptador del recycler costos")
-//        Log.v("R_COST", "Tamaño del array "+items.costDetails.size)
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = UiListCostItemBinding.inflate(

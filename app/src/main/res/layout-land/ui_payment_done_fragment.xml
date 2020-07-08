@@ -45,7 +45,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="@dimen/common_padding_default"
         android:layout_marginEnd="@dimen/common_padding_default"
-        android:layout_marginBottom="@dimen/common_padding_default"
+        app:layout_goneMarginEnd="@dimen/common_padding_default"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
